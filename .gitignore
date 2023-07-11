@@ -1,4 +1,6 @@
-credentials.py
+./credentials.py
 .cache
 .idea
 __pycache__
+credentials.py
+*.txt
