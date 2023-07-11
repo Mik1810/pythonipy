@@ -1,16 +1,22 @@
-import credentials as cr
 import spotipy
 from spotipy.oauth2 import SpotifyOAuth
 import time
 from datetime import datetime
 from keyboard_interrupt import initializeSpotify
+import json
+def get_credentials():
+    with open("credentials.json", "r") as keys:
+        data = json.load(keys)
+    return data['client-id'], data['secret-id'], data['redirect-url']
 
 scope = "user-read-currently-playing user-modify-playback-state"
 
+client, secret, redirect = get_credentials()
+
 sp = spotipy.Spotify(auth_manager=SpotifyOAuth(
-    client_id=cr.SPOTIPY_CLIENT_ID,
-    client_secret=cr.SPOTIPY_CLIENT_SECRET,
-    redirect_uri=cr.SPOTIPY_REDIRECT_URI,
+    client_id=client,
+    client_secret=secret,
+    redirect_uri=redirect,
     scope=scope))
 
 previous_track_id = None
@@ -48,3 +54,6 @@ except KeyboardInterrupt:
     file.write("\n")
 finally:
     file.close()
+
+
+
