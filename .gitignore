@@ -7,3 +7,5 @@ credentials.py
 *.json
 .\credentials.json
 *.json
+build
+*.spec

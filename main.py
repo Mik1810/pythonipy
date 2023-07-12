@@ -4,8 +4,10 @@ import time
 from datetime import datetime
 from keyboard_interrupt import initializeSpotify
 import json
+
+credentials_path = "./credentials.json"
 def get_credentials():
-    with open("credentials.json", "r") as keys:
+    with open(credentials_path, "r") as keys:
         data = json.load(keys)
     return data['client-id'], data['secret-id'], data['redirect-url']
 
@@ -54,6 +56,3 @@ except KeyboardInterrupt:
     file.write("\n")
 finally:
     file.close()
-
-
-
