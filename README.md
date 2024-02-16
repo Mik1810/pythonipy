@@ -1,4 +1,4 @@
-# pythonipy
+# spoti-logger
 A tool that retrieves information about spotify events, like current song playng.
 Can also be used to mark as 'LIKED' a song simply pressing CTRL + ALT + p.
 The songs played by spotify can be accessed in the file "songs.txt" (the program will create automatically if it doesn't exists)
